@@ -217,4 +217,21 @@ document.addEventListener('DOMContentLoaded', () => {
   new UploadManager();
   initPanicMode();
   initDashboard();
+
+  // Feedback Modal Logic
+  const feedbackModal = document.getElementById('feedback-modal');
+  const contactBtn = document.getElementById('contact-menu-btn');
+  const closeFeedbackBtn = document.getElementById('close-feedback');
+
+  if (contactBtn) {
+    contactBtn.addEventListener('click', () => {
+      feedbackModal.style.display = 'flex';
+    });
+  }
+
+  if (closeFeedbackBtn) {
+    closeFeedbackBtn.addEventListener('click', () => {
+      feedbackModal.style.display = 'none';
+    });
+  }
 });

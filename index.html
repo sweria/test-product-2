@@ -14,15 +14,40 @@
     <aside class="sidebar">
       <div class="brand">
         <h1 style="color: var(--primary); font-size: 1.5rem; font-weight: 800;">ExamAI</h1>
-      </div>
-      
       <nav class="nav-menu" style="display: flex; flex-direction: column; gap: var(--space-md);">
-        <div class="nav-item" style="color: var(--primary); font-weight: 600;">대시보드</div>
-        <div class="nav-item" style="color: var(--text-muted);">시험 플래너</div>
-        <div class="nav-item" style="color: var(--text-muted);">나의 노트</div>
+        <div class="nav-item" style="color: var(--primary); font-weight: 600; cursor: pointer;">대시보드</div>
+        <div class="nav-item" style="color: var(--text-muted); cursor: pointer;">시험 플래너</div>
+        <div class="nav-item" style="color: var(--text-muted); cursor: pointer;">나의 노트</div>
+        <div id="contact-menu-btn" class="nav-item" style="color: var(--text-muted); cursor: pointer;">문의하기</div>
       </nav>
 
       <div class="subjects-section" style="margin-top: var(--space-xl);">
+      ...
+      <!-- Feedback Modal (Formspree) -->
+      <div id="feedback-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1001; align-items: center; justify-content: center;">
+      <div class="card" style="width: 450px; padding: var(--space-xl);">
+        <h3 style="margin-bottom: var(--space-md);">AI에게 바라는 점 📮</h3>
+        <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: var(--space-lg);">ExamAI를 사용하며 느낀 점이나 필요한 기능을 알려주세요.</p>
+
+        <form action="https://formspree.io/f/xyknjjee" method="POST" style="display: flex; flex-direction: column; gap: var(--space-md);">
+          <div style="text-align: left;">
+            <label style="font-size: 0.8125rem; font-weight: 600; display: block; margin-bottom: 4px;">이메일</label>
+            <input type="email" name="email" placeholder="답변받을 이메일을 입력하세요" required style="width: 100%; padding: var(--space-sm); border: 1px solid var(--border); border-radius: var(--radius-sm); outline: none;">
+          </div>
+          <div style="text-align: left;">
+            <label style="font-size: 0.8125rem; font-weight: 600; display: block; margin-bottom: 4px;">메시지</label>
+            <textarea name="message" rows="4" placeholder="내용을 입력해주세요..." required style="width: 100%; padding: var(--space-sm); border: 1px solid var(--border); border-radius: var(--radius-sm); outline: none; resize: none;"></textarea>
+          </div>
+          <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-sm);">
+            <button type="button" id="close-feedback" class="btn" style="flex: 1; background: var(--border);">닫기</button>
+            <button type="submit" class="btn btn-primary" style="flex: 1;">보내기</button>
+          </div>
+        </form>
+      </div>
+      </div>
+
+      <!-- Main Content: Dashboard -->
+
         <h3 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-md);">나의 과목</h3>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-sm);">
           <li class="card" style="padding: var(--space-sm) var(--space-md); font-size: 0.875rem;">📚 국어</li>
