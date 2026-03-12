@@ -1,14 +1,113 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExamAI - 시험 대비 AI 퍼스널 튜터</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Pretendard 폰트 불러오기 -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <div class="app-container">
+    <!-- Sidebar: Navigation & Subjects -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h1 style="color: var(--primary); font-size: 1.5rem; font-weight: 800;">ExamAI</h1>
+      </div>
+      
+      <nav class="nav-menu" style="display: flex; flex-direction: column; gap: var(--space-md);">
+        <div class="nav-item" style="color: var(--primary); font-weight: 600;">대시보드</div>
+        <div class="nav-item" style="color: var(--text-muted);">시험 플래너</div>
+        <div class="nav-item" style="color: var(--text-muted);">나의 노트</div>
+      </nav>
+
+      <div class="subjects-section" style="margin-top: var(--space-xl);">
+        <h3 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-md);">나의 과목</h3>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-sm);">
+          <li class="card" style="padding: var(--space-sm) var(--space-md); font-size: 0.875rem;">📚 국어</li>
+          <li class="card" style="padding: var(--space-sm) var(--space-md); font-size: 0.875rem;">📐 수학</li>
+          <li class="card" style="padding: var(--space-sm) var(--space-md); font-size: 0.875rem;">🧪 과학</li>
+        </ul>
+      </div>
+
+      <button class="btn btn-primary" style="margin-top: auto;">+ 새 시험 추가</button>
+    </aside>
+
+    <!-- Main Content: Dashboard -->
+    <main class="main-content">
+      <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+        <div>
+          <h2 style="font-size: 1.5rem; font-weight: 700;">안녕하세요, 열공 모드인가요? 🔥</h2>
+          <p style="color: var(--text-muted);">기말고사까지 D-14일 남았습니다.</p>
+        </div>
+        <div class="user-profile" style="width: 40px; height: 40px; background: var(--primary-light); border-radius: var(--radius-full);"></div>
+      </header>
+
+      <section class="dashboard-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-xl);">
+        <div class="card">
+          <p style="color: var(--text-muted); font-size: 0.875rem;">전체 진행률</p>
+          <h3 style="font-size: 1.5rem; margin: var(--space-xs) 0;">65%</h3>
+          <div style="height: 6px; background: var(--border); border-radius: var(--radius-full); overflow: hidden;">
+            <div style="width: 65%; height: 100%; background: var(--primary);"></div>
+          </div>
+        </div>
+        <div class="card">
+          <p style="color: var(--text-muted); font-size: 0.875rem;">푼 문제 수</p>
+          <h3 style="font-size: 1.5rem; margin: var(--space-xs) 0;">128개</h3>
+          <p style="color: var(--secondary); font-size: 0.75rem;">전일 대비 +12%</p>
+        </div>
+        <div class="card">
+          <p style="color: var(--text-muted); font-size: 0.875rem;">학습 시간</p>
+          <h3 style="font-size: 1.5rem; margin: var(--space-xs) 0;">12시간</h3>
+          <p style="color: var(--text-muted); font-size: 0.75rem;">이번 주 누적</p>
+        </div>
+      </section>
+
+      <section class="upcoming-tasks">
+        <h3 style="margin-bottom: var(--space-md);">오늘의 학습 목표</h3>
+        <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+          <div class="card" style="display: flex; align-items: center; gap: var(--space-md);">
+            <input type="checkbox" style="width: 20px; height: 20px;">
+            <div style="flex: 1;">
+              <p style="font-weight: 600;">과학: '유전과 진화' 단원 AI 요약 읽기</p>
+              <p style="font-size: 0.75rem; color: var(--text-muted);">예상 소요 시간: 20분</p>
+            </div>
+            <span style="background: var(--primary-light); color: var(--primary); font-size: 0.75rem; padding: 2px 8px; border-radius: var(--radius-full);">분석 완료</span>
+          </div>
+          <div class="card" style="display: flex; align-items: center; gap: var(--space-md);">
+            <input type="checkbox" style="width: 20px; height: 20px;">
+            <div style="flex: 1;">
+              <p style="font-weight: 600;">수학: '삼각함수' 오답 노트 복습</p>
+              <p style="font-size: 0.75rem; color: var(--text-muted);">틀린 문제: 15개</p>
+            </div>
+            <span style="background: #fef3c7; color: #d97706; font-size: 0.75rem; padding: 2px 8px; border-radius: var(--radius-full);">복습 필요</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- AI Panel: Chat Assistant -->
+    <aside class="ai-panel">
+      <div style="padding: var(--space-lg); border-bottom: 1px solid var(--border);">
+        <h3 style="display: flex; align-items: center; gap: var(--space-sm);">
+          <span>✨</span> AI 비서 Exie
+        </h3>
+      </div>
+      <div class="chat-history" style="flex: 1; padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-md); overflow-y: auto;">
+        <div class="message ai" style="background: var(--background); padding: var(--space-md); border-radius: var(--radius-md); font-size: 0.875rem;">
+          안녕! 시험 공부하다가 막히는 부분이 있으면 언제든 물어봐. 개념 설명이나 문제 풀이도 도와줄 수 있어!
+        </div>
+      </div>
+      <div style="padding: var(--space-lg); border-top: 1px solid var(--border);">
+        <div style="position: relative;">
+          <input type="text" placeholder="Exie에게 질문하기..." style="width: 100%; padding: var(--space-md); padding-right: 50px; border: 1px solid var(--border); border-radius: var(--radius-md); outline: none;">
+          <button style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--primary); font-weight: 700;">전송</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
